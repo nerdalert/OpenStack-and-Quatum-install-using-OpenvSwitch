@@ -1,0 +1,33 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# Public interface
+auto eth5
+iface eth5 inet static
+	address 128.163.188.8
+	netmask 255.255.255.0
+	network 128.163.188.0
+	broadcast 128.163.188.255
+	gateway 128.163.188.1
+	dns-nameservers 128.163.1.6 128.163.3.10
+
+
+#Backend OVS vNIC bridge
+auto eth0
+iface eth0 inet manual
+     up ifconfig eth0 up
+
+
+#auto eth0
+#iface eth0 inet static
+#	address 172.31.252.6
+#	netmask 255.255.254.0
+#	network 172.31.252.0
+#	broadcast 172.31.253.255
+#	#gateway 172.31.252.1
+#	# dns-* options are implemented by the resolvconf package, if installed
+#	dns-nameservers 128.163.1.6
